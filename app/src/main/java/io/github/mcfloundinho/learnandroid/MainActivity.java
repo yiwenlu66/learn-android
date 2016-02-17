@@ -1,5 +1,6 @@
 package io.github.mcfloundinho.learnandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,6 +11,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText edit_username = (EditText) findViewById(R.id.edit_username);
         final EditText edit_password = (EditText) findViewById(R.id.edit_password);
         final TextView textView = (TextView) findViewById(R.id.textView);
+        final Button button_login = (Button) findViewById(R.id.button_login);
 
         edit_username.addTextChangedListener(new TextWatcher() {
             @Override
@@ -44,6 +47,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        button_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), SubmitActivity.class));
+            }
+        });
    }
 
     @Override
