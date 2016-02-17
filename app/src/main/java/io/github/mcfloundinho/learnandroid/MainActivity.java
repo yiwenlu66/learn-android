@@ -51,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), SubmitActivity.class));
+                Intent intent = new Intent(getApplicationContext(), SubmitActivity.class);
+                Bundle extras = new Bundle();
+                extras.putString("USERNAME", edit_username.getText().toString());
+                extras.putString("PASSWORD", edit_password.getText().toString());
+                intent.putExtras(extras);
+                startActivity(intent);
             }
         });
    }
