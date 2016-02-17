@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SubmitActivity extends AppCompatActivity {
 
@@ -38,10 +39,19 @@ public class SubmitActivity extends AppCompatActivity {
             if (i % 2 == 0)
                 myDataSet[i] = "Username: " + username;
             else
-                myDataSet[i] = "Password:" + password;
+                myDataSet[i] = "Password: " + password;
         }
         mAdapter = new MyAdapter(myDataSet);
         mRecyclerView.setAdapter(mAdapter);
+
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_DRAGGING)
+                    Toast.makeText(getApplicationContext(), "Scrolling...", Toast.LENGTH_SHORT).show();
+            }
+
+        });
 
     }
 
