@@ -32,26 +32,17 @@ public class SubmitActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         Bundle extras = getIntent().getExtras();
-        String username = extras.getString("USERNAME");
-        String password = extras.getString("PASSWORD");
+        String city = extras.getString("CITY");
+        int number = extras.getInt("NUMBER");
         String[] myDataSet = new String[MAXLEN];
         for (int i = 0; i < MAXLEN; ++i) {
             if (i % 2 == 0)
-                myDataSet[i] = "Username: " + username;
+                myDataSet[i] = "City: " + city;
             else
-                myDataSet[i] = "Password: " + password;
+                myDataSet[i] = "Number: " + Integer.toString(number);
         }
         mAdapter = new MyAdapter(myDataSet);
         mRecyclerView.setAdapter(mAdapter);
-
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_DRAGGING)
-                    Toast.makeText(getApplicationContext(), "Scrolling...", Toast.LENGTH_SHORT).show();
-            }
-
-        });
 
     }
 

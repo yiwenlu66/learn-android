@@ -24,37 +24,17 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final EditText edit_username = (EditText) findViewById(R.id.edit_username);
-        final EditText edit_password = (EditText) findViewById(R.id.edit_password);
-        final TextView textView = (TextView) findViewById(R.id.textView);
-        final Button button_login = (Button) findViewById(R.id.button_login);
+        final EditText edit_city = (EditText) findViewById(R.id.edit_city);
+        final EditText edit_numDays = (EditText) findViewById(R.id.edit_numDays);
+        final Button button_submit = (Button) findViewById(R.id.button_submit);
 
-        edit_username.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                edit_password.setText(edit_username.getText());
-                textView.setText(edit_username.getText());
-            }
-        });
-
-
-        button_login.setOnClickListener(new View.OnClickListener() {
+        button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SubmitActivity.class);
                 Bundle extras = new Bundle();
-                extras.putString("USERNAME", edit_username.getText().toString());
-                extras.putString("PASSWORD", edit_password.getText().toString());
+                extras.putString("CITY", edit_city.getText().toString());
+                extras.putInt("NUMBER", Integer.parseInt(edit_numDays.getText().toString()));
                 intent.putExtras(extras);
                 startActivity(intent);
             }

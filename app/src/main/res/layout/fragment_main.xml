@@ -21,7 +21,7 @@
         android:weightSum="1">
 
         <LinearLayout
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
@@ -30,12 +30,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username:" />
+                android:text="City name:" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_username"
+            android:id="@+id/edit_city"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
@@ -48,7 +48,7 @@
         android:weightSum="1">
 
         <LinearLayout
-            android:layout_width="90dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="10dp"
@@ -57,26 +57,26 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Password:" />
+                android:text="Num. of days:" />
 
         </LinearLayout>
 
         <EditText
-            android:id="@+id/edit_password"
+            android:id="@+id/edit_numDays"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:inputType="textPassword" />
+            android:inputType="number" />
     </LinearLayout>
 
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="40dp"
         android:layout_marginTop="20dp"
-        android:text="Log In" />
+        android:text="Submit" />
 
 
     <TextView
@@ -84,6 +84,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="Here is some text." />
+        android:text="Enter city name to get weather forecast." />
 
 </LinearLayout>
