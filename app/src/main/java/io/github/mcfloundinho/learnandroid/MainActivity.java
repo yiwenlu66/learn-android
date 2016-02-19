@@ -28,6 +28,31 @@ public class MainActivity extends AppCompatActivity {
         final EditText edit_numDays = (EditText) findViewById(R.id.edit_numDays);
         final Button button_submit = (Button) findViewById(R.id.button_submit);
 
+        button_submit.setEnabled(false);
+
+        TextWatcher textWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (edit_city.getText().length() > 0 && edit_numDays.getText().length() > 0)
+                    button_submit.setEnabled(true);
+                else
+                    button_submit.setEnabled(false);
+            }
+        };
+
+        edit_city.addTextChangedListener(textWatcher);
+        edit_numDays.addTextChangedListener(textWatcher);
+
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
